@@ -1,8 +1,8 @@
 # ML Project — Прогнозирование покупки пользователем интернет-магазина
 
-**Студент:** `<ФИО / Student ID>`
+**Студент:** `Яворский Александр Алексеевич`
 
-**Группа:** `<Группа>`
+**Группа:** `БИВ238`
 
 ## Оглавление
 
@@ -197,17 +197,18 @@ pytest
 
 ## Результаты {#результаты}
 
-После запуска `python -m src.train` заполните таблицу фактическими числами из `models/experiments.csv`.
-
 | Модель | F1 valid | ROC-AUC valid | PR-AUC valid | Примечание |
 |----|---:|---:|---:|----|
-| baseline_logreg_no_fe | — | — | — | baseline без feature engineering |
-| logreg_fe | — | — | — | линейная модель + новые признаки |
-| knn_fe | — | — | — | метрический baseline |
-| random_forest_fe | — | — | — | bagging/ансамбль деревьев |
-| extra_trees_fe | — | — | — | более рандомизированный ансамбль |
-| gradient_boosting_fe | — | — | — | boosting |
-| hist_gradient_boosting_fe | — | — | — | быстрый boosting |
-| random_forest_no_page_values | — | — | — | ablation без PageValues |
+| baseline_logreg_no_fe | 0.631 | 0.895 | 0.619 | baseline без feature engineering |
+| logreg_fe | 0.626 | 0.895 | 0.617 | линейная модель + новые признаки |
+| knn_fe | 0.441 | 0.851 | 0.574 | метрический baseline |
+| random_forest_fe | 0.646 | 0.923 | 0.733 | bagging/ансамбль деревьев |
+| extra_trees_fe | 0.615 | 0.903 | 0.645 | более рандомизированный ансамбль |
+| gradient_boosting_fe | 0.645 | 0.926 | 0.730 | boosting |
+| hist_gradient_boosting_fe | 0.619 | 0.922 | 0.720 | быстрый boosting |
+| random_forest_no_page_values | 0.273 | 0.781 | 0.366 | ablation без PageValues |
 
-Финальная модель выбирается по максимальному `f1` на validation. Test-метрики финальной модели сохраняются в `models/test_metrics.json`.
+Лучшая модель на validation по F1 — `random_forest_fe`: F1 = 0.646, ROC-AUC = 0.923, PR-AUC = 0.733. 
+На test она получила F1 = 0.681, ROC-AUC = 0.929, PR-AUC = 0.757.
+
+Ablation-эксперимент без признака `PageValues` резко ухудшил качество: F1 упал с 0.646 до 0.273, PR-AUC — с 0.733 до 0.366. Это показывает, что `PageValues` является одним из самых важных признаков для предсказания покупки.
