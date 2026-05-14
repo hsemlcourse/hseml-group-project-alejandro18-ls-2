@@ -1,0 +1,25 @@
+{
+  "rows": 12205,
+  "columns": 18,
+  "target_column": "Revenue",
+  "positive_class_share": 0.15632937320770177,
+  "duplicates_after_cleaning": 0,
+  "missing_values": {},
+  "conversion_by_visitor_type": {
+    "New_Visitor": 0.2492616656822209,
+    "Other": 0.19753086419753085,
+    "Returning_Visitor": 0.14092608570606846
+  },
+  "conversion_by_month": {
+    "Nov": 0.25486250838363517,
+    "Oct": 0.20947176684881602,
+    "Sep": 0.19196428571428573,
+    "Aug": 0.17551963048498845,
+    "Jul": 0.1527777777777778,
+    "Dec": 0.12661195779601406,
+    "May": 0.10964253529588465,
+    "Mar": 0.1032258064516129,
+    "June": 0.10175438596491228,
+    "Feb": 0.016574585635359115
+  }
+}

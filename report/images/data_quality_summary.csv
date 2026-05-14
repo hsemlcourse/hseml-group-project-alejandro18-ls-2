@@ -1,0 +1,6 @@
+metric,value
+rows,12205.0
+columns_without_target,17.0
+positive_rate,0.15632937320770177
+duplicates_after_loading_removed,0.0
+missing_values_total,0.0

@@ -1,0 +1,13 @@
+services:
+  cp2-train:
+    build: .
+    container_name: online-shoppers-cp2
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./artifacts:/app/artifacts
+      - ./report/images:/app/report/images
+    command: >
+      bash -lc "python scripts/download_data.py --output data/raw/online_shoppers_intention.csv || true;
+      python -m src.eda --data-path data/raw/online_shoppers_intention.csv --output-dir report/images;
+      python -m src.train --data-path data/raw/online_shoppers_intention.csv --output-dir artifacts --models-dir models --n-iter 12"
